@@ -6,7 +6,8 @@
 
 html,
 body,
-#app {
+#app,
+main {
   height: 100%;
 }
 
@@ -14,8 +15,10 @@ body {
   font-family: "Space Mono", monospace;
 }
 
-main {
-  min-height: 100%;
+@layer base {
+  .container {
+    min-height: 100%;
+  }
 }
 
 :root {

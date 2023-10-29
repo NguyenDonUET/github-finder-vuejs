@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <h1>Result</h1>
     <div v-for="item in searchUserResult" :key="item.id">
       {{ item.login }}

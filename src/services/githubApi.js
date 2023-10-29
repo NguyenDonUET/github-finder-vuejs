@@ -7,10 +7,11 @@ const customFetch = axios.create({
   },
 });
 
-export const searchByUserName = async (username, perPage = 12, page = 1) => {
+export const searchByUserName = async (username, perPage, page = 1) => {
   const response = await customFetch.get(
     `/search/users?q=${username}&per_page=${perPage}&page=${page}`
   );
+  // console.log("🚀 ~ response:", response);
   return response.data;
 };
 

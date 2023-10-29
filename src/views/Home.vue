@@ -1,13 +1,14 @@
 <template>
-  <div class="container">
-    <SearchBar
-      v-model:userNameQuery.trim.lazy="userNameQuery"
-      @onSearchUser="searchUser"
-    />
-    <BaseLoading v-if="isLoading" />
-    <SearchResultError v-if="errorMsg" />
-    <SearchResult v-if="searchUserResult" />
+  <SearchBar
+    v-model:userNameQuery.trim.lazy="userNameQuery"
+    @onSearchUser="searchUser"
+  />
+  <BaseLoading v-if="isLoading" />
+  <SearchResultError v-if="errorMsg" />
+  <div class="min-h-[80%]">
+    <SearchResult v-show="searchUserResult" />
   </div>
+  <ThePagination />
 </template>
 
 <script setup>
@@ -15,6 +16,7 @@ import SearchBar from "@components/SearchBar/SearchBar.vue";
 import SearchResult from "@components/SearchResult/SearchResult.vue";
 import BaseLoading from "@components/BaseLoading.vue";
 import SearchResultError from "@components/SearchResult/SearchResultError.vue";
+import ThePagination from "@/components/ThePagination.vue";
 
 import { useGlobalStore } from "@/store/global.js";
 import { storeToRefs } from "pinia";
@@ -25,6 +27,4 @@ const { userNameQuery, searchUserResult, isLoading, errorMsg } =
   storeToRefs(globalStore);
 
 const { searchUser } = globalStore;
-
-console.log("🚀 ~ searchUserResult:", searchUserResult.value);
 </script>
