@@ -5,9 +5,10 @@
 </template>
 
 <script setup>
-defineProps({
-  errorMsg: {
-    type: String,
-  },
-});
+import { useGlobalStore } from "@/store/global.js";
+import { storeToRefs } from "pinia";
+
+const globalStore = useGlobalStore();
+
+const { errorMsg } = storeToRefs(globalStore);
 </script>

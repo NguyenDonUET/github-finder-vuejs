@@ -1,7 +1,30 @@
 <template>
-  <div>Home</div>
+  <div class="container">
+    <SearchBar
+      v-model:userNameQuery.trim.lazy="userNameQuery"
+      @onSearchUser="searchUser"
+    />
+    <BaseLoading v-if="isLoading" />
+    <SearchResultError v-if="errorMsg" />
+    <SearchResult v-if="searchUserResult" />
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import SearchBar from "@components/SearchBar/SearchBar.vue";
+import SearchResult from "@components/SearchResult/SearchResult.vue";
+import BaseLoading from "@components/BaseLoading.vue";
+import SearchResultError from "@components/SearchResult/SearchResultError.vue";
 
-<style lang="scss" scoped></style>
+import { useGlobalStore } from "@/store/global.js";
+import { storeToRefs } from "pinia";
+
+const globalStore = useGlobalStore();
+
+const { userNameQuery, searchUserResult, isLoading, errorMsg } =
+  storeToRefs(globalStore);
+
+const { searchUser } = globalStore;
+
+console.log("🚀 ~ searchUserResult:", searchUserResult.value);
+</script>
