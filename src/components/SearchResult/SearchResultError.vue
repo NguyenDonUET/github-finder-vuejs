@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>{{ errorMsg }}</h2>
+  <div class="p-14 text-center dark:text-light">
+    <h2 class="text-3xl">{{ errorMsg }}</h2>
   </div>
 </template>
 

@@ -1,15 +1,19 @@
 <template>
-  <div class="">
-    <h1>Result</h1>
-    <div v-for="item in searchUserResult" :key="item.id">
-      {{ item.login }}
-    </div>
+  <div
+    class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-12"
+  >
+    <SearchResultCard
+      v-for="user in searchUserResult"
+      :key="user.id"
+      :user="user"
+    />
   </div>
 </template>
 
 <script setup>
 import { useGlobalStore } from "@/store/global.js";
 import { storeToRefs } from "pinia";
+import SearchResultCard from "./SearchResultCard.vue";
 
 const globalStore = useGlobalStore();
 

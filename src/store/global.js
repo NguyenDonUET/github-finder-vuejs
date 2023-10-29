@@ -1,8 +1,9 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { searchByUserName, getUserDetail } from "@/services/githubApi";
+import { useDark, useToggle } from "@vueuse/core";
 
-const THEME = {
+export const THEME = {
   LIGHT: "light",
   DARK: "dark",
 };
@@ -12,9 +13,10 @@ export const useGlobalStore = defineStore("globalStore", () => {
   const searchUserResult = ref(null);
   const currentPage = ref(1);
   const totalResult = ref(0);
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
 
-  const theme = ref(THEME.DARK);
+  const isDark = useDark();
+  const toggleDark = useToggle(isDark);
 
   const errorMsg = ref(null);
   const isLoading = ref(false);
@@ -25,6 +27,7 @@ export const useGlobalStore = defineStore("globalStore", () => {
       if (!userNameQuery.value) return;
       searchUserResult.value = [];
       isLoading.value = true;
+      errorMsg.value = null;
       const data = await searchByUserName(
         userNameQuery.value,
         itemsPerPage,
@@ -35,7 +38,8 @@ export const useGlobalStore = defineStore("globalStore", () => {
       // update total items
       totalResult.value = data.total_count;
     } catch (error) {
-      errorMsg.value = "Error";
+      errorMsg.value = error.message;
+      totalResult.value = 0;
       console.log(error.message);
     } finally {
       isLoading.value = false;
@@ -47,16 +51,21 @@ export const useGlobalStore = defineStore("globalStore", () => {
     searchUser();
   };
 
+  // const toggleTheme = () => {
+  //   theme.value = theme.value === THEME.DARK ? THEME.LIGHT : THEME.DARK;
+  // };
+
   return {
     userNameQuery,
     searchUserResult,
     currentPage,
     errorMsg,
     isLoading,
-    theme,
     totalResult,
     itemsPerPage,
     searchUser,
     changeCurrentPage,
+    toggleDark,
+    isDark,
   };
 });

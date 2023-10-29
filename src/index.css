@@ -6,8 +6,7 @@
 
 html,
 body,
-#app,
-main {
+#app {
   height: 100%;
 }
 
@@ -17,12 +16,17 @@ body {
 
 @layer base {
   .container {
-    min-height: 100%;
+    @apply max-w-6xl mx-auto lg:px-48;
+  }
+}
+
+@layer components {
+  .paginate-btn {
+    @apply w-4 h-4 text-gray-800;
   }
 }
 
 :root {
-  --electric: #0079ff;
   --gray: #697c9a;
   --darkSky: #4b6a9b;
   --darkBlue: #2b3442;
@@ -30,6 +34,5 @@ body {
   --light: #fefefe;
   --white: #ffffff;
   --dark: #141d2f;
-  --semiDark: #1e2a47;
   --error: #f74646;
 }

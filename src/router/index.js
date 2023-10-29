@@ -9,6 +9,11 @@ const routes = [
     path: "/users/:username",
     component: () => import("@/views/UserDetail.vue"),
   },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "notFound",
+    component: () => import("@/views/UserDetail.vue"),
+  },
 ];
 
 const router = createRouter({

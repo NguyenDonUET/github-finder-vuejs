@@ -1,14 +1,16 @@
 <template>
-  <SearchBar
-    v-model:userNameQuery.trim.lazy="userNameQuery"
-    @onSearchUser="searchUser"
-  />
-  <BaseLoading v-if="isLoading" />
-  <SearchResultError v-if="errorMsg" />
-  <div class="min-h-[80%]">
-    <SearchResult v-show="searchUserResult" />
+  <div class="container">
+    <SearchBar
+      v-model:userNameQuery.trim.lazy="userNameQuery"
+      @onSearchUser="searchUser"
+    />
+    <BaseLoading v-if="isLoading" />
+    <SearchResultError v-if="errorMsg" />
+    <div class="min-h-full">
+      <SearchResult v-show="searchUserResult" />
+    </div>
+    <ThePagination />
   </div>
-  <ThePagination />
 </template>
 
 <script setup>

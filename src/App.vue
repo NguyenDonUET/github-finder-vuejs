@@ -1,6 +1,6 @@
 <template>
   <TheHeading />
-  <main>
+  <main class="py-16 px-4 min-h-full">
     <RouterView />
   </main>
   <TheFooter />
