@@ -2,13 +2,13 @@
   <div
     class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 pt-5"
   >
-    <a href="#" class="">
+    <RouterLink :to="`/users/${user.login}`">
       <img
         class="rounded-full w-32 h-32 mx-auto"
         :src="user.avatar_url"
         :alt="user.login"
       />
-    </a>
+    </RouterLink>
     <div class="p-4 text-center">
       <a href="#">
         <h5
@@ -18,8 +18,8 @@
         </h5>
       </a>
 
-      <a
-        href="#"
+      <RouterLink
+        :to="`/users/${user.login}`"
         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 group/item transition duration-500"
       >
         View more
@@ -38,7 +38,7 @@
             d="M1 5h12m0 0L9 1m4 4L9 9"
           />
         </svg>
-      </a>
+      </RouterLink>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { searchByUserName, getUserDetail } from "@/services/githubApi";
+import { searchByUserName } from "@/services/githubApi";
 import { useDark, useToggle } from "@vueuse/core";
 
 export const THEME = {
@@ -9,7 +9,7 @@ export const THEME = {
 };
 
 export const useGlobalStore = defineStore("globalStore", () => {
-  const userNameQuery = ref("octocat");
+  const userNameQuery = ref("nguyenDon");
   const searchUserResult = ref(null);
   const currentPage = ref(1);
   const totalResult = ref(0);
@@ -51,9 +51,17 @@ export const useGlobalStore = defineStore("globalStore", () => {
     searchUser();
   };
 
-  // const toggleTheme = () => {
-  //   theme.value = theme.value === THEME.DARK ? THEME.LIGHT : THEME.DARK;
-  // };
+  const setQueryandCurrentPage = (name, page) => {
+    userNameQuery.value = name;
+    currentPage.value = parseInt(page);
+  };
+
+  const resetValues = () => {
+    userNameQuery.value = "";
+    searchUserResult.value = null;
+    currentPage.value = 1;
+    totalResult.value = 0;
+  };
 
   return {
     userNameQuery,
@@ -67,5 +75,7 @@ export const useGlobalStore = defineStore("globalStore", () => {
     changeCurrentPage,
     toggleDark,
     isDark,
+    setQueryandCurrentPage,
+    resetValues,
   };
 });

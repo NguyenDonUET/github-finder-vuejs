@@ -2,12 +2,10 @@
   <div class="container">
     <SearchBar
       v-model:userNameQuery.trim.lazy="userNameQuery"
-      @onSearchUser="searchUser"
+      @onSearchUser="handleSearchUser"
     />
-    <BaseLoading v-if="isLoading" />
-    <SearchResultError v-if="errorMsg" />
     <div class="min-h-full">
-      <SearchResult v-show="searchUserResult" />
+      <router-view></router-view>
     </div>
     <ThePagination />
   </div>
@@ -15,18 +13,27 @@
 
 <script setup>
 import SearchBar from "@components/SearchBar/SearchBar.vue";
-import SearchResult from "@components/SearchResult/SearchResult.vue";
-import BaseLoading from "@components/BaseLoading.vue";
-import SearchResultError from "@components/SearchResult/SearchResultError.vue";
+
 import ThePagination from "@/components/ThePagination.vue";
 
 import { useGlobalStore } from "@/store/global.js";
 import { storeToRefs } from "pinia";
+import { useRouter, onBeforeRouteUpdate } from "vue-router";
+import { onMounted } from "vue";
 
+const router = useRouter();
 const globalStore = useGlobalStore();
 
-const { userNameQuery, searchUserResult, isLoading, errorMsg } =
-  storeToRefs(globalStore);
+const { userNameQuery } = storeToRefs(globalStore);
 
-const { searchUser } = globalStore;
+const { searchUser, resetValues } = globalStore;
+
+const handleSearchUser = () => {
+  searchUser();
+  router.push({ name: "search", query: { q: userNameQuery.value, page: 1 } });
+};
+
+onMounted(() => {
+  console.log("home mount");
+});
 </script>

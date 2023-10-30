@@ -15,7 +15,7 @@ export const searchByUserName = async (username, perPage, page = 1) => {
   return response.data;
 };
 
-export const getUserDetail = async (username) => {
+export const getUserByName = async (username) => {
   const response = await customFetch.get(`/users/${username}`);
   return response.data;
 };

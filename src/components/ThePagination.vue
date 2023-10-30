@@ -5,7 +5,7 @@
       :total-items="totalResult"
       :items-per-page="itemsPerPage"
       :max-pages-shown="5"
-      v-model="currentPage"
+      v-model="page"
       :on-click="onClickHandler"
       :hide-prev-next-when-ends="false"
       :show-ending-buttons="true"
@@ -94,21 +94,37 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { onMounted } from "vue";
 import { useGlobalStore } from "@/store/global.js";
 import { storeToRefs } from "pinia";
 const globalStore = useGlobalStore();
-const { totalResult } = storeToRefs(globalStore);
+
+const { totalResult, currentPage } = storeToRefs(globalStore);
 
 const { itemsPerPage } = globalStore;
 const { changeCurrentPage } = globalStore;
 
-const currentPage = ref(1);
+import { useRoute, useRouter } from "vue-router";
+const route = useRoute();
+const router = useRouter();
+
+const page = ref(1);
+
+watch(currentPage, (newPage, oldPage) => {
+  console.log(newPage);
+  page.value = newPage;
+});
 
 const onClickHandler = (page) => {
-  console.log("🚀 ~ page:", page);
   changeCurrentPage(page);
+  currentPage.value = page;
+  router.push({ query: { ...route.query, page } });
 };
+
+// onMounted(() => {
+//   currentPage.value = parseInt(route.query.page);
+// });
 </script>
 
 <style>

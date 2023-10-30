@@ -2,13 +2,13 @@
   <header class="dark:text-light">
     <div class="container">
       <div class="flex justify-between items-center py-8 px-6">
-        <div class="">
+        <RouterLink to="/" class="">
           <h2
             class="font-semibold text-xl md:text-3xl tracking-tight whitespace-nowrap"
           >
             Github Finder
           </h2>
-        </div>
+        </RouterLink>
         <div
           class="flex gap-4 items-center cursor-pointer"
           @click="toggleDark()"

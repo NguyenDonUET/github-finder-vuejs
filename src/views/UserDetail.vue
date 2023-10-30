@@ -1,5 +1,26 @@
 <template>
-  <div>Details</div>
+  <div class="text-light container">
+    <h1 class="text-center text-2xl uppercase font-bold mb-16">
+      Detail informations
+    </h1>
+    <Suspense>
+      <AsyncUser #default />
+      <template #fallback>
+        <h2 v-if="errorMsg">{{ errorMsg }}</h2>
+        <h2 v-else>Loading...</h2>
+      </template>
+    </Suspense>
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import AsyncUser from "@components/User/AsyncUser.vue";
+import { onErrorCaptured, ref } from "vue";
+
+const errorMsg = ref("");
+
+onErrorCaptured((err) => {
+  errorMsg.value = err.message;
+  console.log(err.message);
+});
+</script>
