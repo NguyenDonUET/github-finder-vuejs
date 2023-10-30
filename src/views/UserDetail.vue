@@ -1,6 +1,6 @@
 <template>
   <div class="text-light container">
-    <h1 class="text-center text-2xl uppercase font-bold mb-16">
+    <h1 class="text-center text-2xl uppercase font-bold mb-12 text-green-400">
       Detail informations
     </h1>
     <Suspense>
