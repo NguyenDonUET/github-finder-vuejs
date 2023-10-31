@@ -8,7 +8,9 @@
     <Suspense>
       <AsyncUser #default />
       <template #fallback>
-        <h2 v-if="errorMsg">{{ errorMsg }}</h2>
+        <div v-if="errorMsg" class="p-14 text-center dark:text-light">
+          <h2 class="text-3xl">{{ errorMsg }}</h2>
+        </div>
         <BaseLoading v-else />
       </template>
     </Suspense>
@@ -23,7 +25,7 @@ import { onErrorCaptured, ref } from "vue";
 const errorMsg = ref("");
 
 onErrorCaptured((err) => {
-  errorMsg.value = err.message;
-  console.log(err.message);
+  errorMsg.value = err.response.data?.message || err.message;
+  console.log(err);
 });
 </script>
