@@ -5,7 +5,7 @@
       class="flex items-center gap-0 sm:gap-2 rounded-2xl shadow-cardShadow dark:bg-semiDark py-2 sm:px-8 px-2 dark:border-none"
     >
       <svg
-        class="base:hidden"
+        class="hidden md:block"
         height="24"
         width="25"
         xmlns="http://www.w3.org/2000/svg"
