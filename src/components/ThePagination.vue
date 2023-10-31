@@ -121,10 +121,6 @@ const onClickHandler = (page) => {
   currentPage.value = page;
   router.push({ query: { ...route.query, page } });
 };
-
-// onMounted(() => {
-//   currentPage.value = parseInt(route.query.page);
-// });
 </script>
 
 <style></style>
