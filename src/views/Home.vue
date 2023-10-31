@@ -18,8 +18,7 @@ import ThePagination from "@/components/ThePagination.vue";
 
 import { useGlobalStore } from "@/store/global.js";
 import { storeToRefs } from "pinia";
-import { useRouter, onBeforeRouteUpdate } from "vue-router";
-import { onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 const globalStore = useGlobalStore();
