@@ -13,10 +13,9 @@
           class="flex gap-4 items-center cursor-pointer"
           @click="toggleDark()"
         >
-          <h3 class="capitalize font-bold text-lg text-darkSky">
+          <h3 class="capitalize font-bold text-lg text-darkSky dark:text-light">
             {{ isDark ? THEME.DARK : THEME.LIGHT }}
           </h3>
-          <!-- moon -->
           <svg
             v-if="!isDark && THEME.LIGHT"
             id="moon"
