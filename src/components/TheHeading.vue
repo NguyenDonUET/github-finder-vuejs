@@ -2,7 +2,19 @@
   <header class="dark:text-light">
     <div class="container">
       <div class="flex justify-between items-center py-8 px-6">
-        <RouterLink to="/" class="">
+        <RouterLink to="/" class="flex items-center gap-2">
+          <img
+            v-if="isDark"
+            class="w-10 h-10"
+            src="/github-logo.svg"
+            alt="logo"
+          />
+          <img
+            v-else
+            class="w-10 h-10"
+            src="/github-logo-light.svg"
+            alt="logo"
+          />
           <h2
             class="font-semibold text-xl md:text-3xl lg:text-4xl tracking-tight whitespace-nowrap"
           >
