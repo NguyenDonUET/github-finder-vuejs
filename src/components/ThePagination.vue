@@ -112,7 +112,6 @@ const router = useRouter();
 const page = ref(1);
 
 watch(currentPage, (newPage, oldPage) => {
-  console.log(newPage);
   page.value = newPage;
 });
 

@@ -28,7 +28,6 @@ const { searchUser, setQueryandCurrentPage, resetValues } = globalStore;
 
 import { useRoute, useRouter } from "vue-router";
 const route = useRoute();
-const router = useRouter();
 
 onMounted(() => {
   const { q, page } = route.query;
@@ -37,7 +36,6 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  console.log("unmmount result");
   resetValues();
 });
 </script>

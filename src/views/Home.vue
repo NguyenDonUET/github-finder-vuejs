@@ -26,14 +26,10 @@ const globalStore = useGlobalStore();
 
 const { userNameQuery } = storeToRefs(globalStore);
 
-const { searchUser, resetValues } = globalStore;
+const { searchUser } = globalStore;
 
 const handleSearchUser = () => {
   searchUser();
   router.push({ name: "search", query: { q: userNameQuery.value, page: 1 } });
 };
-
-onMounted(() => {
-  console.log("home mount");
-});
 </script>

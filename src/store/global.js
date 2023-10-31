@@ -38,7 +38,8 @@ export const useGlobalStore = defineStore("globalStore", () => {
       // update total items
       totalResult.value = data.total_count;
     } catch (error) {
-      errorMsg.value = error.message;
+      console.log("🚀 ~ error:", error);
+      errorMsg.value = error.response.data.message;
       totalResult.value = 0;
       console.log(error.message);
     } finally {

@@ -85,5 +85,5 @@ import UserSubInfoItem from "./UserSubInfoItem.vue";
 const route = useRoute();
 
 const user = await getUserByName(route.params.username);
-console.log("🚀 ~ user:", user);
+// console.log("🚀 ~ user:", user);
 </script>
