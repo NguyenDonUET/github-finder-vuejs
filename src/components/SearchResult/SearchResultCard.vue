@@ -12,7 +12,7 @@
     <div class="p-4 text-center">
       <a href="#">
         <h5
-          class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+          class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white break-words"
         >
           {{ user.login }}
         </h5>
