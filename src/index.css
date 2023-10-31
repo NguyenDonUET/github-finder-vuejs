@@ -24,17 +24,23 @@ body {
   .paginate-btn {
     @apply w-4 h-4 text-gray-800;
   }
-  .user-layout {
+  .user-layout-mobile {
     grid-template-rows: 68px 32px 1fr 140px 175px;
     grid-template-columns: 76px 1fr;
+  }
+  .user-layout-tablet {
+    grid-template-rows: 60px 32px 1fr 140px 114px;
+    grid-template-columns: 76px 1fr;
+  }
+  .user-layout-desktop {
+    grid-template-columns: 117px repeat(4, 1fr);
+    grid-template-rows: 46px 1fr 140px 96px;
+    column-gap: 40px;
   }
 }
 
 :root {
   --gray: #697c9a;
   --darkBlue: #2b3442;
-  --light: #fefefe;
-  --white: #ffffff;
-  --dark: #141d2f;
   --error: #f74646;
 }
