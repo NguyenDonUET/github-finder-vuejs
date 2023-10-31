@@ -4,7 +4,7 @@
       <div class="flex justify-between items-center py-8 px-6">
         <RouterLink to="/" class="">
           <h2
-            class="font-semibold text-xl md:text-3xl tracking-tight whitespace-nowrap"
+            class="font-semibold text-xl md:text-3xl lg:text-4xl tracking-tight whitespace-nowrap"
           >
             Github Finder
           </h2>
@@ -13,7 +13,7 @@
           class="flex gap-4 items-center cursor-pointer"
           @click="toggleDark()"
         >
-          <h3 class="uppercase font-bold text-base">
+          <h3 class="capitalize font-bold text-lg text-darkSky">
             {{ isDark ? THEME.DARK : THEME.LIGHT }}
           </h3>
           <!-- moon -->

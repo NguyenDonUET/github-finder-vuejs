@@ -7,6 +7,7 @@ export default {
       colors: {
         light: "#fefefe",
         darkSky: "#4b6a9b",
+        lightBlue: "#3566d1",
       },
       backgroundColor: {
         bodyDarkMode: "rgb(20, 29, 47)",
