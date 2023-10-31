@@ -9,13 +9,14 @@
       <AsyncUser #default />
       <template #fallback>
         <h2 v-if="errorMsg">{{ errorMsg }}</h2>
-        <h2 v-else>Loading...</h2>
+        <BaseLoading v-else />
       </template>
     </Suspense>
   </div>
 </template>
 
 <script setup>
+import BaseLoading from "@/components/BaseLoading.vue";
 import AsyncUser from "@components/User/AsyncUser.vue";
 import { onErrorCaptured, ref } from "vue";
 
