@@ -1,7 +1,27 @@
-# Vue 3 + Vite
+# Advanced Todo List
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+![demo](./public/github-finder.png)
 
-## Recommended IDE Setup
+- Live Demo: https://advanced-todo-list-nguyendonuet.netlify.app/
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+#### Features
+
+##### 1. Searching for GitHub users by their username
+
+##### 2. Displaying relevant user information based on the search
+
+##### 3. Providing the option to switch between light and dark themes
+
+##### 4. Adapting the app's layout to the optimal view based on the user's device screen size
+
+##### 5. Implementing pagination functionality
+
+#### Technologies:
+
+- Vuejs, TailwindCss
+- Pinia, Vue-router, vueuse
+
+#### Setup and run project
+
+- `npm install`
+- `npm run dev`
