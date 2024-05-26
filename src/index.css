@@ -16,7 +16,7 @@ body {
 
 @layer base {
   .container {
-    @apply max-w-6xl mx-auto lg:px-48;
+    @apply max-w-7xl mx-auto lg:px-12;
   }
 }
 
