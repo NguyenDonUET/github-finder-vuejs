@@ -5,7 +5,11 @@
     <div
       class="grid user-layout-mobile md:user-layout-tablet lg:user-layout-desktop"
     >
-      <UserAvatar :url="user.avatar_url" :alt="user.login" />
+      <UserAvatar
+        :url="user.avatar_url"
+        :alt="user.login"
+        :html_url="user.html_url"
+      />
 
       <UserGeneralInfo :name="user.login" />
 
@@ -71,19 +75,19 @@
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
-import { getUserByName } from "@/services/githubApi";
-import UserAvatar from "@components/User/UserAvatar.vue";
-import UserGeneralInfo from "@components/User/UserGeneralInfo.vue";
-import UserJoinedDate from "./UserJoinedDate.vue";
-import UserBio from "./UserBio.vue";
-import UserStats from "./UserStats.vue";
-import UserStatItem from "./UserStatItem.vue";
-import UserSubInfo from "./UserSubInfo.vue";
-import UserSubInfoItem from "./UserSubInfoItem.vue";
+import { useRoute } from "vue-router"
+import { getUserByName } from "@/services/githubApi"
+import UserAvatar from "@components/User/UserAvatar.vue"
+import UserGeneralInfo from "@components/User/UserGeneralInfo.vue"
+import UserJoinedDate from "./UserJoinedDate.vue"
+import UserBio from "./UserBio.vue"
+import UserStats from "./UserStats.vue"
+import UserStatItem from "./UserStatItem.vue"
+import UserSubInfo from "./UserSubInfo.vue"
+import UserSubInfoItem from "./UserSubInfoItem.vue"
 
-const route = useRoute();
+const route = useRoute()
 
-const user = await getUserByName(route.params.username);
-// console.log("🚀 ~ user:", user);
+const user = await getUserByName(route.params.username)
+console.log("🚀 ~ user:", user)
 </script>
