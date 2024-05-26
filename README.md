@@ -2,7 +2,7 @@
 
 ![demo](./public/github-finder.png)
 
-- Live Demo: [https://advanced-todo-list-nguyendonuet.netlify.app/](https://github-finder-nguyendonuet.netlify.app/)
+- Live Demo: [https://advanced-todo-list-nguyendonuet.netlify.app/](https://github-finder-nguyendonuet.netlify.app/](https://github-finder-nguyendonuet.netlify.app/)
 
 #### Features
 
